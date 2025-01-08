@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @OpenAPIDefinition(info = @Info(
         contact = @Contact(
                 name = "Todo",
-                url = "https://www.buildwithseamless.co"),
+                url = "http://3.80.199.188"),
         title = "Todo Devfoundry API",
         version = "1.0",
         description = "This is the API documentation for the Dev foundry API",
@@ -29,7 +29,7 @@ import org.springframework.context.annotation.Configuration;
         @Server(url = "http://localhost:8086",
                 description = "Local Server"),
 
-        @Server(url = "http://3.89.102.55",
+        @Server(url = "http://3.80.199.188",
                 description = "Production Server")
         },
         security = {

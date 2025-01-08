@@ -12,18 +12,18 @@ import java.time.LocalDateTime;
 
 @Builder
 public record AddTodoRequest(
-        @NotBlank(message = "Title must not be blank")
+        @NotBlank(message = "must not be blank")
         @Size(max = 100)
         String title,
 
-        @NotBlank(message = "Title must not be blank")
+        @NotBlank(message = "text must not be blank")
         @Size(max = 200)
         String text,
 
-        @NotNull(message = "Priority must be LOW, MEDIUM or HIGH")
+        @NotNull(message = "must be LOW, MEDIUM or HIGH")
         Priority priority,
-        @NotNull(message = "Due date must not be null")
 
+        @NotNull(message = "must be in format dd-MM-yyyy")
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
         LocalDate dueDate
 ) {

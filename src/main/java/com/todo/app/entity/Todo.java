@@ -1,10 +1,7 @@
 package com.todo.app.entity;
 
 import com.todo.app.enums.Priority;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -23,6 +20,10 @@ public class Todo {
     private String title;
     private String text;
     private boolean completed;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     private Priority priority;
     private LocalDate startDate;
     private LocalDate dueDate;

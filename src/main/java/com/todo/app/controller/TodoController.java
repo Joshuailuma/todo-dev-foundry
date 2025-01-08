@@ -53,9 +53,9 @@ public class TodoController {
             @ApiResponse(responseCode = "404", description = "No Record Found", content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "500", description = "Internal Server Error!")
     })
-    @PostMapping("/mark-complete/{todo-id}")
-    ResponseEntity<AppResponse> addTodo(@PathVariable UUID todo){
-        AppResponse response = todoService.markComplete(todo);
+    @PostMapping("/mark-complete/{todoId}")
+    ResponseEntity<AppResponse> addTodo(@PathVariable UUID todoId){
+        AppResponse response = todoService.markComplete(todoId);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

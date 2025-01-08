@@ -58,7 +58,7 @@ public class TodoServiceImpl implements TodoService {
         todo = todoRepository.save(todo);
 
         } catch (Exception e) {
-            throw new RuntimeException(Constants.COULD_NOT_ADD_TODO);
+            throw new ApiError(Constants.COULD_NOT_ADD_TODO, HttpStatus.BAD_REQUEST);
         }
         return new AppResponse(Constants.TODO_SUCCESSFULLY_SAVED, todo);
     }
@@ -67,14 +67,14 @@ public class TodoServiceImpl implements TodoService {
     public AppResponse markComplete(UUID todoId) {
 
         Todo todo = todoRepository.findById(todoId).orElseThrow(()->
-                new RuntimeException(Constants.TODO_NOT_FOUND));
+                new ApiError(Constants.TODO_NOT_FOUND, HttpStatus.NOT_FOUND));
 
         todo.setCompleted(true);
         try {
             todoRepository.save(todo);
 
         } catch (Exception e) {
-            throw new RuntimeException(Constants.SOMETHING_WENT_WRONG);
+            throw new ApiError(Constants.TODO_INCOMPLETED, HttpStatus.BAD_REQUEST);
         }
         return new AppResponse(Constants.TODO_COMPLETED, todo);
     }
@@ -82,12 +82,12 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public AppResponse deleteTodo(UUID todoId) {
         Todo todo = todoRepository.findById(todoId).orElseThrow(()->
-                new RuntimeException(Constants.TODO_NOT_FOUND));
+                new ApiError(Constants.TODO_NOT_FOUND, HttpStatus.NOT_FOUND));
         try {
                 todoRepository.delete(todo);
 
         } catch (Exception e) {
-            throw new RuntimeException(Constants.SOMETHING_WENT_WRONG);
+            throw new ApiError(Constants.TODO_NOT_DELETED, HttpStatus.BAD_REQUEST);
         }
 
         return new AppResponse(Constants.TODO_DELETED, todo);
@@ -97,7 +97,7 @@ public class TodoServiceImpl implements TodoService {
     public AppResponse editTodo(UUID todoId, EditTodoRequest editTodoRequest) {
 
         Todo todo = todoRepository.findById(todoId).orElseThrow(()->
-                new RuntimeException(Constants.TODO_NOT_FOUND));
+                new ApiError(Constants.TODO_NOT_FOUND, HttpStatus.NOT_FOUND));
 
         if (editTodoRequest.title() != null){
             todo.setTitle(editTodoRequest.title());
@@ -118,7 +118,7 @@ public class TodoServiceImpl implements TodoService {
         try {
                 todoRepository.save(todo);
         } catch (Exception e) {
-            throw new RuntimeException(Constants.SOMETHING_WENT_WRONG);
+            throw new ApiError(Constants.TODO_NOT_EDITED, HttpStatus.BAD_REQUEST);
         }
         return new AppResponse(Constants.TODO_EDITED, todo);
     }
