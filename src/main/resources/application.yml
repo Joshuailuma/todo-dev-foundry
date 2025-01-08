@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/todo_db
-    username: josh
-    password: postgres
+    url: jdbc:postgresql://localhost:5432/${DB-NAME}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+
   jpa:
     properties:
       hibernate:
@@ -14,7 +15,7 @@ spring:
   application:
     name: app
 server:
-  port: 8086
+  port: 8080
 
 springdoc:
   api-docs:
