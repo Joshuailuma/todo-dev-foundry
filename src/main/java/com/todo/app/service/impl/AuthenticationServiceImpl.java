@@ -19,6 +19,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static com.todo.app.utils.Constants.*;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -38,18 +41,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
-                .role(request.getRole())
                 .build();
 
         try {
         userRepository.save(user);
         } catch (Exception e) {
-            throw new ApiError("User registration failed", HttpStatus.BAD_REQUEST);
+            throw new ApiError(REGISTRATION_FAILED, HttpStatus.BAD_REQUEST);
         }
 
         RegisteredUser userMapper = registeredUserMapper.toRegisteredUser(user);
         return AppResponse.builder()
-                .message("Registration Successful")
+                .message(REGISTRATION_SUCCESSFUL)
                 .result(userMapper).build();
     }
 
@@ -59,14 +61,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User userFromDb = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow(() -> new ApiError("User not found with email: " + loginRequest.getEmail(),
                 HttpStatus.NOT_FOUND));
         if (!passwordEncoder.matches(loginRequest.getPassword(), userFromDb.getPassword())) {
-            throw new ApiError("Incorrect Password", HttpStatus.BAD_REQUEST);
+            throw new ApiError(INCORRECT_PASSWORD, HttpStatus.BAD_REQUEST);
         }
 
-      Authentication re = authenticationManager.authenticate(
+      Authentication authInfo = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getEmail(),
                         loginRequest.getPassword()));
-        log.info("Information is " +re);
+        log.info("Information is " +authInfo);
 
         String jwtToken = jwtService.generateToken(userFromDb);
 
@@ -81,7 +83,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .expiresAt(expiryTime)
                 .build();
 
-        return new AppResponse("Login successful", authenticationResponse);
+        return new AppResponse(LOGIN_SUCCESSFULL, authenticationResponse);
     }
 
     private void saveUserToken(User savedUser, String jwtToken) {
@@ -105,5 +107,4 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             tokenRepository.saveAll(tokenList);
         }
     }
-
 }

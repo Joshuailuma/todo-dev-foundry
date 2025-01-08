@@ -12,6 +12,7 @@ import java.util.UUID;
 
 public interface TodoService {
     AppResponse addTodo(AddTodoRequest addTodoRequest);
+    AppResponse markComplete(UUID todoId);
     AppResponse deleteTodo(UUID todoId);
     AppResponse editTodo(UUID todoId, EditTodoRequest editTodoRequest);
     Page<TodoList> getTodos(Pageable pageable);

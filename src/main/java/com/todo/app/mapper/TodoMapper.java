@@ -12,7 +12,10 @@ public class TodoMapper {
 return TodoList.builder().
         title(todo.getTitle())
         .text(todo.getText())
+        .priority(todo.getPriority())
+        .completed(todo.isCompleted())
+        .startDate(todo.getStartDate())
+        .dueDate(todo.getDueDate())
         .build();
-
     }
 }

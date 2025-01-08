@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/todo_db
-    username: postgres
-    password: password
+    username: josh
+    password: postgres
   jpa:
     properties:
       hibernate:
@@ -16,3 +16,19 @@ spring:
 server:
   port: 8086
 
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enable: true
+  show-actuator: true
+  packages-to-scan: com.todo.app.controller
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG

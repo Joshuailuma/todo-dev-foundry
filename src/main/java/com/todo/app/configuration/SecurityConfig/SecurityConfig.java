@@ -36,6 +36,15 @@ public class SecurityConfig {
                  .requestMatchers(HttpMethod.GET, "/todo/get-todos").authenticated()
                                 .requestMatchers(HttpMethod.DELETE, "/todo/delete-todo/*").authenticated()
                                 .requestMatchers(HttpMethod.PATCH, "/todo/edit-todo").authenticated()
+                                .requestMatchers(
+
+                                        "/v3/api-docs/**",
+                                        "/swagger-resources",
+                                        "/swagger-resources/**",
+                                        "/configuration/ui",
+                                        "/configuration/security",
+                                        "/swagger-ui/**","/webjars/**",
+                                        "/swagger-ui.html").permitAll()
                                 .anyRequest().authenticated()
                 )
 

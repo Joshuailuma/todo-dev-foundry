@@ -6,5 +6,11 @@ public class Constants {
     public static String TODO_DELETED = "Todo item deleted";
     public static String TODO_EDITED = "Todo item edited";
     public static String TODO_NOT_FOUND = "Todo not found";
-    public static String SOMETHING_WENT_WRONG = "Something went wrong";
+    public static String SOMETHING_WENT_WRONG = "Something went wrong. Please try again later";
+    public static String FUTURE_DUE_DATE = "Due date must be in the future";
+    public static String LOGIN_SUCCESSFULL = "Login successful";
+    public static String INCORRECT_PASSWORD = "Incorrect password";
+    public static String REGISTRATION_SUCCESSFUL = "Registration successful";
+    public static String REGISTRATION_FAILED = "User registration failed";
+    public static String TODO_COMPLETED = "Todo completed";
 }

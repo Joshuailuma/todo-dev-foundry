@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import static com.todo.app.utils.Constants.SOMETHING_WENT_WRONG;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
@@ -33,7 +34,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericException(Exception e){
-        ErrorResponse errorResponse = new ErrorResponse(e.getMessage(), "000", BAD_REQUEST);
+        ErrorResponse errorResponse = new ErrorResponse(SOMETHING_WENT_WRONG, "000", BAD_REQUEST);
         return new ResponseEntity<>(errorResponse, BAD_REQUEST);
     }
     @ExceptionHandler(JwtAuthenticationException.class)
