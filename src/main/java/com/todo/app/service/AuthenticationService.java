@@ -1,6 +1,7 @@
 package com.todo.app.service;
 
 import com.todo.app.model.AppResponse;
+import com.todo.app.model.LoginRequest;
 import com.todo.app.model.RegistrationRequest;
 
 public interface AuthenticationService {

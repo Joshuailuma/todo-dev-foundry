@@ -6,11 +6,11 @@ import lombok.Builder;
 
 @Builder
 public record AddTodoRequest(
-        @NotBlank
+        @NotBlank(message = "Title must not be blank")
         @Size(max = 100)
         String title,
 
-        @NotBlank
+        @NotBlank(message = "Title must not be blank")
         @Size(max = 200)
         String text
 ) {
