@@ -105,8 +105,8 @@ public class TodoServiceImpl implements TodoService {
         if (editTodoRequest.text() != null){
             todo.setText(editTodoRequest.text());
         }
-        if (editTodoRequest.completed()){
-            todo.setCompleted(true);
+        if (editTodoRequest.priority() != null){
+            todo.setPriority(editTodoRequest.priority());
         }
         if (editTodoRequest.dueDate() != null){
             if (editTodoRequest.dueDate().isBefore(LocalDate.now())){

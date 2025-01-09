@@ -28,8 +28,6 @@ public class User implements UserDetails {
     private String lastName;
     private String email;
     private String password;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Todo> todo;
 
     @Enumerated(EnumType.STRING)
     private Role role;

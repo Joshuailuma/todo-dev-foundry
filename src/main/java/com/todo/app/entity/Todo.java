@@ -20,10 +20,6 @@ public class Todo {
     private String title;
     private String text;
     private boolean completed;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
     private Priority priority;
     private LocalDate startDate;
     private LocalDate dueDate;
