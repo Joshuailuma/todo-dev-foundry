@@ -42,7 +42,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericException(Exception e){
-        ErrorResponse errorResponse = new ErrorResponse(SOMETHING_WENT_WRONG, "000", BAD_REQUEST);
+        ErrorResponse errorResponse = new ErrorResponse(e.getMessage(), "000", BAD_REQUEST);
         return new ResponseEntity<>(errorResponse, BAD_REQUEST);
     }
     @ExceptionHandler(JwtAuthenticationException.class)
