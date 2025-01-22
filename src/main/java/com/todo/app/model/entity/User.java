@@ -1,4 +1,4 @@
-package com.todo.app.entity;
+package com.todo.app.model.entity;
 
 import com.todo.app.enums.Role;
 import jakarta.persistence.*;

@@ -1,7 +1,7 @@
 package com.todo.app.repository;
 
-import com.todo.app.entity.Token;
-import com.todo.app.entity.User;
+import com.todo.app.model.entity.Token;
+import com.todo.app.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

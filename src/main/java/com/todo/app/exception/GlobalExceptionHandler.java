@@ -1,6 +1,6 @@
 package com.todo.app.exception;
 
-import com.todo.app.model.ErrorResponse;
+import com.todo.app.model.response.ErrorResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;

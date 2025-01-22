@@ -1,10 +1,9 @@
 package com.todo.app.controller;
 
-import com.todo.app.exception.ApiError;
-import com.todo.app.model.AppResponse;
-import com.todo.app.model.ErrorResponse;
-import com.todo.app.model.LoginRequest;
-import com.todo.app.model.RegistrationRequest;
+import com.todo.app.model.response.AppResponse;
+import com.todo.app.model.response.ErrorResponse;
+import com.todo.app.model.request.LoginRequest;
+import com.todo.app.model.request.RegistrationRequest;
 import com.todo.app.service.AuthenticationService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;

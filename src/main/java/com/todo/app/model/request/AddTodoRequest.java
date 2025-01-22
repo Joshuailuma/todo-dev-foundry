@@ -1,4 +1,4 @@
-package com.todo.app.model;
+package com.todo.app.model.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.todo.app.enums.Priority;
@@ -8,7 +8,6 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Builder
 public record AddTodoRequest(

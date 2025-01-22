@@ -1,8 +1,6 @@
 package com.todo.app.repository;
 
-import com.todo.app.entity.Todo;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.todo.app.model.entity.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

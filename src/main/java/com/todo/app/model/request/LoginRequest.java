@@ -1,6 +1,5 @@
-package com.todo.app.model;
+package com.todo.app.model.request;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 

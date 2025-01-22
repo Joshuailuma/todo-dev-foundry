@@ -1,11 +1,15 @@
 package com.todo.app.service.impl;
 
 import com.todo.app.configuration.appConfig.JwtService;
-import com.todo.app.entity.Token;
-import com.todo.app.entity.User;
+import com.todo.app.model.entity.Token;
+import com.todo.app.model.entity.User;
 import com.todo.app.exception.ApiError;
 import com.todo.app.mapper.RegisteredUserMapper;
-import com.todo.app.model.*;
+import com.todo.app.model.request.LoginRequest;
+import com.todo.app.model.request.RegistrationRequest;
+import com.todo.app.model.response.AppResponse;
+import com.todo.app.model.response.AuthenticationResponse;
+import com.todo.app.model.response.RegisteredUser;
 import com.todo.app.repository.TokenRepository;
 import com.todo.app.repository.UserRepository;
 import com.todo.app.service.AuthenticationService;

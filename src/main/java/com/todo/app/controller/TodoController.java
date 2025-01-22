@@ -1,6 +1,11 @@
 package com.todo.app.controller;
 
-import com.todo.app.model.*;
+import com.todo.app.model.request.AddTodoRequest;
+import com.todo.app.model.request.EditTodoRequest;
+import com.todo.app.model.response.AppResponse;
+import com.todo.app.model.response.CustomPage;
+import com.todo.app.model.response.ErrorResponse;
+import com.todo.app.model.response.TodoList;
 import com.todo.app.service.TodoService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
@@ -11,7 +16,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -94,10 +98,10 @@ public class TodoController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error!")
     })
     @GetMapping("/get-todos")
-    ResponseEntity<Page<TodoList>> getTodos(@RequestParam(defaultValue = "0") int page,
+    ResponseEntity<CustomPage<TodoList>> getTodos(@RequestParam(defaultValue = "0") int page,
                                             @RequestParam(defaultValue = "50") int size){
         Pageable pageable = PageRequest.of(page, size);
-        Page<TodoList> response = todoService.getTodos(pageable);
+        CustomPage<TodoList> response = todoService.getTodos(pageable);
         return ResponseEntity.ok(response);
     }
 }

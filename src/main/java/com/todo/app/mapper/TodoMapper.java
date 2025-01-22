@@ -1,8 +1,7 @@
 package com.todo.app.mapper;
 
-import com.todo.app.entity.Todo;
-import com.todo.app.model.TodoList;
-import org.springframework.context.annotation.Bean;
+import com.todo.app.model.entity.Todo;
+import com.todo.app.model.response.TodoList;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,9 +1,8 @@
 package com.todo.app.configuration.appConfig;
 
-import com.todo.app.entity.Token;
+import com.todo.app.model.entity.Token;
 import com.todo.app.exception.ApiError;
 import com.todo.app.repository.TokenRepository;
-import com.todo.app.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

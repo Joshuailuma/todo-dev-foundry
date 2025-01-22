@@ -1,7 +1,6 @@
-package com.todo.app.model;
+package com.todo.app.model.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 

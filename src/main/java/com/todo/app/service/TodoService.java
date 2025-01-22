@@ -1,11 +1,10 @@
 package com.todo.app.service;
 
-import com.todo.app.entity.Todo;
-import com.todo.app.model.AddTodoRequest;
-import com.todo.app.model.AppResponse;
-import com.todo.app.model.EditTodoRequest;
-import com.todo.app.model.TodoList;
-import org.springframework.data.domain.Page;
+import com.todo.app.model.request.AddTodoRequest;
+import com.todo.app.model.response.AppResponse;
+import com.todo.app.model.request.EditTodoRequest;
+import com.todo.app.model.response.CustomPage;
+import com.todo.app.model.response.TodoList;
 import org.springframework.data.domain.Pageable;
 
 import java.util.UUID;
@@ -15,5 +14,5 @@ public interface TodoService {
     AppResponse markComplete(UUID todoId);
     AppResponse deleteTodo(UUID todoId);
     AppResponse editTodo(UUID todoId, EditTodoRequest editTodoRequest);
-    Page<TodoList> getTodos(Pageable pageable);
+    CustomPage<TodoList> getTodos(Pageable pageable);
 }

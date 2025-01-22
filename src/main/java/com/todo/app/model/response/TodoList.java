@@ -1,4 +1,4 @@
-package com.todo.app.model;
+package com.todo.app.model.response;
 
 import com.todo.app.enums.Priority;
 import lombok.Builder;

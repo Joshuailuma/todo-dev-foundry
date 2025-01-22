@@ -1,7 +1,7 @@
 package com.todo.app.mapper;
 
-import com.todo.app.entity.User;
-import com.todo.app.model.RegisteredUser;
+import com.todo.app.model.entity.User;
+import com.todo.app.model.response.RegisteredUser;
 import org.springframework.stereotype.Service;
 
 @Service
