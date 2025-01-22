@@ -201,39 +201,19 @@ The API will return three error types when requests fail:
 {
   "content": [
     {
-      "title": "Second todo",
+      "title": "New todo",
       "text": "A very sweet message",
       "priority": "LOW",
-      "completed": true,
+      "completed": false,
       "startDate": "2025-01-08",
-      "dueDate": "2025-03-12"
+      "dueDate": "2025-12-13"
     }
   ],
-  "pageable": {
-    "pageNumber": 0,
-    "pageSize": 50,
-    "sort": {
-      "unsorted": true,
-      "empty": true,
-      "sorted": false
-    },
-    "offset": 0,
-    "paged": true,
-    "unpaged": false
-  },
-  "last": true,
+  "pageNumber": 1,
+  "pageSize": 50,
   "totalElements": 1,
   "totalPages": 1,
-  "first": true,
-  "size": 50,
-  "number": 0,
-  "sort": {
-    "unsorted": true,
-    "empty": true,
-    "sorted": false
-  },
-  "numberOfElements": 1,
-  "empty": false
-
+  "last": true,
+  "first": true
 }
 ```
