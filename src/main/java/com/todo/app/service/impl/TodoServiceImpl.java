@@ -2,16 +2,18 @@ package com.todo.app.service.impl;
 
 import com.todo.app.exception.ApiError;
 import com.todo.app.mapper.TodoMapper;
-import com.todo.app.entity.Todo;
-import com.todo.app.model.AddTodoRequest;
-import com.todo.app.model.AppResponse;
-import com.todo.app.model.EditTodoRequest;
-import com.todo.app.model.TodoList;
+import com.todo.app.model.entity.Todo;
+import com.todo.app.model.request.AddTodoRequest;
+import com.todo.app.model.response.AppResponse;
+import com.todo.app.model.request.EditTodoRequest;
+import com.todo.app.model.response.CustomPage;
+import com.todo.app.model.response.TodoList;
 import com.todo.app.repository.TodoRepository;
 import com.todo.app.service.TodoService;
 import com.todo.app.utils.Constants;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -124,10 +126,13 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public Page<TodoList> getTodos(Pageable pageable) {
+    public CustomPage<TodoList> getTodos(Pageable pageable) {
+        int pageNumber = pageable.getPageNumber() > 0 ? pageable.getPageNumber() - 1 : 0;
+        Pageable updatedPageable = PageRequest.of(pageNumber, pageable.getPageSize(), pageable.getSort());
+
         List<TodoList> todoList = new ArrayList<>();
-        Page<Todo> todoPage = todoRepository.findAll(pageable);
+        Page<Todo> todoPage = todoRepository.findAll(updatedPageable);
         todoList = todoPage.stream().map(todoMapper::toTodoList).toList();
-        return new PageImpl<>(todoList, pageable, todoPage.getTotalElements());
+        return new CustomPage<>( new PageImpl<>(todoList, pageable, todoPage.getTotalElements()));
     }
 }
