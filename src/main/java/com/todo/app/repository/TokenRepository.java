@@ -14,6 +14,4 @@ public interface TokenRepository extends JpaRepository<Token, UUID> {
 
     @Query(value = "SELECT * FROM token WHERE users_id = ?1 AND (is_expired = 'false' or is_revoked = 'false')", nativeQuery = true)
     List<Token> findAllValidTokenByUser(UUID id);
-
-    List<Token> findAllTokenByUsers(User user);
 }

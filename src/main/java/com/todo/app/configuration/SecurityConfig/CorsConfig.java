@@ -11,6 +11,7 @@ public class CorsConfig implements CorsConfigurationSource {
     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://localhost:8086");
+        config.addAllowedOrigin("http://3.80.199.188");
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
         config.setAllowCredentials(true);

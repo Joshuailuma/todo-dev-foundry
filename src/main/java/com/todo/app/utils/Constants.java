@@ -13,4 +13,7 @@ public class Constants {
     public static String REGISTRATION_SUCCESSFUL = "Registration successful";
     public static String REGISTRATION_FAILED = "User registration failed";
     public static String TODO_COMPLETED = "Todo completed";
+    public static String TODO_INCOMPLETED = "Couldn't mark Todo as completed. Please try again";
+    public static String TODO_NOT_DELETED = "Todo couldn't be deleted. Please try again";
+    public static String TODO_NOT_EDITED = "Couldn't edit todo. Please try again";
 }
